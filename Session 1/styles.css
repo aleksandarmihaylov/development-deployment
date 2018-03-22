@@ -1,0 +1,14 @@
+body {
+  background-color: #cfa7cf;
+}
+.small {
+  width: 100%;
+  color: white;
+  font-size: 15px;
+}
+.small .evensmaller {
+  border: 1px solid pink;
+}
+.small .evensmaller:hover {
+  color: red;
+}

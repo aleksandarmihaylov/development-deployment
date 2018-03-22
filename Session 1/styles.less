@@ -1,0 +1,20 @@
+@mycolor: #cfa7cf;
+@mansnothot: red;
+
+body {
+  background-color: @mycolor;
+}
+
+.small {
+  width: 100%;
+  color: white;
+  .crazy(15px);
+  .evensmaller {
+    border: 1px solid pink;
+    &:hover{color:@mansnothot}
+  }
+}
+
+.crazy(@fontsize) {
+  font-size: @fontsize;
+}

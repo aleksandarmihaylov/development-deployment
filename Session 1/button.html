@@ -8,7 +8,35 @@
 </head>
 
 <body>
-  //hey
+  <button-accordion></button-accordion>
 </body>
+<script>
+
+  class Accordion extends HTMLElement {
+    constructor() {
+      super();
+      var shadow = this.attachShadow({ mode: "open" });
+      var button = document.createElement('button');
+
+      var accordion = document.createElement('div');
+      accordion.setAttribute("class", "accordion");
+      button.innerText = "Click me!";
+      button.addEventListener('click', popUp);
+
+      function popUp() {
+        accordion.innerHTML += '<div class="child">Hello world!</div>';
+      }
+
+      var styletag = document.createElement("style");
+      styletag.textContent = `.accordion{position: absolute; top:25%; left:25%; width:50vw; height:50vw;}
+      .child{background-color: black; opacity:0.2; color: white; display:inline-block; padding:20px;}`
+      shadow.appendChild(styletag);
+      shadow.appendChild(accordion);
+      shadow.appendChild(button);
+
+    }
+  }
+  customElements.define("button-accordion", Accordion);
+</script>
 
 </html>
