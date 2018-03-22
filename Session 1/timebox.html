@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <time-box></time-box>
+</body>
+<script>
+
+  class TimeBox extends HTMLElement {
+    constructor() {
+      super();
+      var shadow = this.attachShadow({ mode: "open" });
+
+      var box = document.createElement("div");
+      box.setAttribute("class", "box");
+      var currentdate = new Date();
+      var datetime = currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
+      box.innerText = datetime;
+      //create the styling(local)
+      var styletag = document.createElement("style");
+      styletag.textContent = ".box{padding: 20px; border: 1px solid red; display: inline-block; margin-top:20px;}";
+      //attaching the dom to the shadow root
+      shadow.appendChild(styletag);
+      shadow.appendChild(box);
+
+    }
+  }
+
+  customElements.define("time-box", TimeBox);
+</script>
+
+</html>
